@@ -1,0 +1,27 @@
+/*-----------------------blue grey-------------------------*/
+$bgrey-theme-primary: mat-palette($mat-blue-grey);
+$bgrey-theme-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+$bgrey-theme-warn: mat-palette($mat-red);
+
+$bgrey-theme: mat-light-theme($bgrey-theme-primary, $bgrey-theme-accent, $bgrey-theme-warn);
+$bgrey-theme-dark: mat-dark-theme($bgrey-theme-primary, $bgrey-theme-accent, $bgrey-theme-warn);
+
+/*-----------------------lime-------------------------*/
+$lime-theme-primary: mat-palette($mat-lime);
+$lime-theme-accent: mat-palette($mat-lime, A200, A100, A400);
+$lime-theme-warn: mat-palette($mat-red);
+
+$lime-theme: mat-light-theme($lime-theme-primary, $lime-theme-accent, $lime-theme-warn);
+$lime-theme-dark: mat-dark-theme($lime-theme-primary, $lime-theme-accent, $lime-theme-warn);
+
+/*-----------------------orange-------------------------*/
+$orange-theme-primary: mat-palette($mat-orange);
+$orange-theme-accent: mat-palette($mat-orange, A200, A100, A400);
+$orange-theme-warn: mat-palette($mat-red);
+
+$orange-theme: mat-light-theme($orange-theme-primary, $orange-theme-accent, $orange-theme-warn);
+$orange-theme-dark: mat-dark-theme($orange-theme-primary, $orange-theme-accent, $orange-theme-warn);
+
+
+
+

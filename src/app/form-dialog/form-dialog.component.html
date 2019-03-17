@@ -1,0 +1,52 @@
+<mat-card *ngIf="showForm" id="form-dialog" fxLayout="column" fxLayoutAlign="start center">
+
+  <mat-card-title>{{formTitle}}</mat-card-title>
+  <mat-card-subtitle [style.color]="isWarning ? 'red' : 'green'">{{formMsg}}</mat-card-subtitle>
+
+
+  <form [formGroup]="form" novalidate (ngSubmit)="submitForm(form)"
+        fxLayout="column" fxLayoutAlign="start start">
+    <mat-form-field>
+      <input matInput formControlName="firstname" placeholder="First name" (focus)="onFocus()">
+      <button type="button" *ngIf="form.controls['firstname'].value"
+              matSuffix mat-icon-button (click)="clearInput('firstname')">X
+      </button>
+      <mat-error align="end" class="redtxt">
+        <app-input-error-msg [cntrl]="form.controls['firstname']"></app-input-error-msg>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput formControlName="lastname" placeholder="Last name" (focus)="onFocus()">
+      <button type="button" *ngIf="form.controls['lastname'].value"
+              matSuffix mat-icon-button (click)="clearInput('lastname')">X
+      </button>
+      <mat-error align="end">
+        <app-input-error-msg [cntrl]="form.controls['lastname']"></app-input-error-msg>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="email" formControlName="email" placeholder="E-Mail" (focus)="onFocus()">
+      <button type="button" *ngIf="form.controls['email'].value"
+              matSuffix mat-icon-button (click)="clearInput('email')">X
+      </button>
+
+      <mat-error align="end">
+        <app-input-error-msg [cntrl]="form.controls['email']"></app-input-error-msg>
+      </mat-error>
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutGap="2rem">
+      <button mat-raised-button type="submit" [disabled]="form.invalid">Submit</button>
+      <button mat-raised-button type="button" (click)="closeForm()">Close</button>
+    </div>
+  </form>
+
+</mat-card>
+<mat-card *ngIf="!showForm" fxLayout="column">
+  <h4>Are you sure you want to delete the selected {{selectedItemsCount}} items?</h4>
+  <div fxLayout="row" fxLayoutAlign="space-around">
+    <button mat-raised-button color="warn" type="button" (click)="sureDelete()">YES</button>
+    <button mat-raised-button type="button" (click)="closeForm()">CANCEL</button>
+  </div>
+</mat-card>

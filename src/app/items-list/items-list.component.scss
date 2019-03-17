@@ -1,0 +1,30 @@
+.table-container {
+  min-width: 599px;
+}
+
+// prevents checkbox from clipping when checked
+mat-cell.mat-column-checkbox {
+  overflow: visible;
+}
+
+.mat-column-checkbox, .mat-column-id {
+  flex: 0 0 2rem;
+}
+
+.mat-column-id {
+  color: silver;
+}
+
+.mat-column-checkbox {
+  margin-right: 3rem;
+}
+
+.mat-checkbox-frame {
+  border-color: silver;
+}
+
+.mat-column-firstname, .mat-column-lastname, .mat-column-email {
+  display: flex;
+  justify-content: flex-start;
+}
+

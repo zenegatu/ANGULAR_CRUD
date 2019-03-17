@@ -1,0 +1,23 @@
+<div>
+  <button mat-icon-button [mat-menu-trigger-for]="themeMenu" matTooltip="Select a theme!"
+          tabindex="-1">
+    <mat-icon>format_color_fill</mat-icon>
+  </button>
+
+  <mat-menu class="theme-picker-menu" #themeMenu="matMenu" x-position="before">
+    <mat-grid-list cols="2">
+      <mat-grid-tile class="theme-picker-grid-title" *ngFor="let theme of themes">
+        <div mat-menu-item (click)="selectedTheme(theme)">
+          <div class="theme-picker-swatch">
+            <div class="theme-primary-color" [style.background]="theme.primary"></div>
+            <div class="theme-bg" [style.background]="theme.bgColor"></div>
+            <div class="theme-primary-color" [style.background]="theme.primary"></div>
+            <mat-icon class="theme-chosen-icon" [style.color]="theme.iconColor"
+                      *ngIf="currentTheme === theme.class  ">check_circle
+            </mat-icon>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-menu>
+</div>

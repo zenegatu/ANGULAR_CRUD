@@ -1,0 +1,36 @@
+$theme-picker-swatch-size: 36px;
+$theme-picker-accent-height: 10px;
+$theme-picker-primary-height: 18px;
+
+.theme-picker-menu {
+
+  [mat-menu-item] {
+    flex: 0 0 auto;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .theme-picker-swatch {
+    position: relative;
+    width: $theme-picker-swatch-size;
+    height: $theme-picker-swatch-size;
+    border: 1px #888888 solid;
+    overflow: hidden;
+
+    .theme-primary-color {
+      width: 100%;
+      height: $theme-picker-accent-height;
+    }
+
+    .theme-bg {
+      width: 100%;
+      height: $theme-picker-primary-height;
+    }
+    .theme-chosen-icon {
+      position: absolute;
+      left: 40%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

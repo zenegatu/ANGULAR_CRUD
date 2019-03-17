@@ -1,0 +1,58 @@
+<mat-card class="table-container ">
+  <mat-card-title>
+    <button mat-button [disabled]="selectedItems.length > 0" (click)="openAddDialog()">NEW</button>
+    <button mat-button [disabled]="selectedItems.length != 1" (click)="openEditDialog()">EDIT</button>
+    <button mat-button [disabled]="selectedItems.length == 0" (click)="openDeleteDialog()">DELETE</button>
+  </mat-card-title>
+  <div>
+    <mat-form-field>
+      <input matInput placeholder="Search" (keyup)="applyFilter($event.target.value)">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="tableDataSource" matSort>
+    <!-- checkbox Column -->
+    <ng-container matColumnDef="checkbox">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef='let person'>
+        <mat-checkbox (change)="selected($event,person)" aria-label="select" [checked]="false"></mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <!-- ID -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef='let person'>{{person.id}}</mat-cell>
+    </ng-container>
+
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> First Name</mat-header-cell>
+      <mat-cell *matCellDef="let person ">{{person.firstname}}</mat-cell>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let person">{{person.lastname}}</mat-cell>
+    </ng-container>
+
+    <!-- E-Mail Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> E-Mail</mat-header-cell>
+      <mat-cell *matCellDef="let person ">{{person.email}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator #paginator
+                 [length]="tableDataSource?.filteredData.length"
+                 [pageIndex]="0"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[10, 20, 30, 40, 50]">
+  </mat-paginator>
+</mat-card>
+
+

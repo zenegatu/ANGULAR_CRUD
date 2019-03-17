@@ -1,0 +1,24 @@
+<main [ngClass]="selectedThemeClass" fxLayout="column" fxFlexAlign="center center">
+
+  <nav>
+    <mat-toolbar color="primary" fxLayout="row">
+      <mat-toolbar-row fxFlex="auto">
+        <table>
+          <tr><td><small>developer: Z. Negatu</small></td></tr>
+          <tr><td><small>frameworks: Angular,Angular-material and angular layout</small></td></tr>
+        </table>
+      </mat-toolbar-row>
+      <mat-toolbar-row fxFlex="auto">
+        MeDA-IT  Browser Database Interface
+      </mat-toolbar-row>
+      <mat-toolbar-row id="theme-selector" fxFlex="auto">
+        <app-theme-selector (theme)="setColorThem($event)"></app-theme-selector>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+  </nav>
+
+  <app-items-list></app-items-list>
+
+</main>
+
