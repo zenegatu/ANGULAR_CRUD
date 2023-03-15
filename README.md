@@ -1,4 +1,4 @@
-DEMO: http://negatu.byethost17.com/
+
 
 The app is made with angular and angular material . Some angular flex-layout is also used for layouts. InMemoryDBService is used to emulates CRUD operations over a RESTy API.
 
